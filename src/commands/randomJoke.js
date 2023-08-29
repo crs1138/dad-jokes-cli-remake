@@ -1,7 +1,7 @@
 import { stdout } from 'node:process';
 import { getRandomJoke } from '../services/dadJokesService.js';
 
-const command = ['random'];
+const command = ['random', '$0'];
 const describe = `Prints a random joke`;
 
 const handler = async () => {
