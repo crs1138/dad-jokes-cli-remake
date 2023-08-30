@@ -16,8 +16,8 @@ export const getRandomJoke = async () => {
 export const getSearchForJoke = async (term) => {
     const searchDadJokesUrl = new URL('https://icanhazdadjoke.com/search');
     searchDadJokesUrl.searchParams.set('term', term);
-    searchDadJokesUrl.searchParams.set('page', 1);
-    searchDadJokesUrl.searchParams.set('limit', 1);
+    searchDadJokesUrl.searchParams.set('page', '1');
+    searchDadJokesUrl.searchParams.set('limit', '1');
     const url = searchDadJokesUrl.toString();
     return await getJokes(url, defaultOptions);
 };

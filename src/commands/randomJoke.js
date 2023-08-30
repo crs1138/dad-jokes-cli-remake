@@ -1,3 +1,4 @@
+// @ts-check
 import { stdout } from 'node:process';
 import { getRandomJoke } from '../services/dadJokesService.js';
 
