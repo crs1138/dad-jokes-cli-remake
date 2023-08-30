@@ -6,7 +6,10 @@ const command = ['random', '$0'];
 const describe = `Prints a random joke`;
 
 const handler = async () => {
-    const joke = await getRandomJoke();
-    stdout.write(joke + '\n');
+    const jokeResponse = await getRandomJoke();
+    if (jokeResponse) {
+        const { joke } = jokeResponse;
+        stdout.write(joke + '\n');
+    }
 };
 export const randomJokeCommand = { command, describe, handler };

@@ -8,9 +8,9 @@ const builder = (yargs) =>
         alias: 'term',
         describe: `Use '--term <word>' Search for a joke containing the word.`,
     });
-const handler = async ({ term }) => {
+const handler = async ({ term }: { term: string }) => {
     const jokes = await getSearchForJoke(term);
-    if (jokes.length > 0) {
+    if (jokes && jokes.length > 0) {
         const [jokeObj] = jokes;
         const { joke } = jokeObj;
         stdout.write(`${joke}\n`);

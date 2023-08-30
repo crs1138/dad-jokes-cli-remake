@@ -1,18 +1,23 @@
-export const getJoke = async (resource, options = {}) => {
+export type Joke = {
+    id: string;
+    joke: string;
+    status: 200;
+};
+
+export const getJoke = async (resource: URL | string, options = {}): Promise<Joke | undefined> => {
     try {
         const response = await fetch(resource, options);
         if (!response.ok) {
             throw new Error(`Fetch error: ${response.status}`);
         }
 
-        const { joke } = await response.json();
-        return joke;
+        return await response.json();
     } catch (err) {
-        console.error(err.message, err.cause);
+        console.error(err.message);
     }
 };
 
-export const getJokes = async (resource, options = {}) => {
+export const getJokes = async (resource, options = {}): Promise<Joke[] | undefined> => {
     try {
         const response = await fetch(resource, options);
         if (!response.ok) {
